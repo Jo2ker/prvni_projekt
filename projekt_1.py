@@ -71,3 +71,32 @@ if vybrany_index.isdigit():
 else:
     print("Zadaný vstup je neplatný, ukončuji program.")
     exit()
+
+# počet slov v textu
+slova = TEXTS[vybrany_index].strip().split()
+pocet_slov = len(slova)
+print("Vybraný text obsahuje", pocet_slov, "slov.")
+
+# počet slov začínajících velkým písmenem
+velky_pismeno = [_ for _ in slova if _[0].isupper()]
+pocet_velky_pismeno = len(velky_pismeno)
+print("Z toho", pocet_velky_pismeno, "slov, začínajících velkým písmenem.")
+
+# počet slov psaných velkými písmeny
+velka_pismena = [_ for _ in slova if _.isupper() and _.isalpha()]
+pocet_velka_pismena = len(velka_pismena)
+print(pocet_velka_pismena, "slov psaných velkými písmeny.")
+
+# počet slov psaných malými písmeny
+mala_pismena = [_ for _ in slova if _.islower()]
+pocet_mala_pismena = len(mala_pismena)
+print(pocet_mala_pismena, "slov psaných malými písmeny.")
+
+# počet čísel
+cisla = [int(_) for _ in slova if _.isdigit()]
+pocet_cisel = len(cisla)
+print("Obsahuje", pocet_cisel, "číselné řetězce.")
+
+# suma všech čísel v textu
+soucet = sum(cisla)
+print("Součet všech čísel v textu je", soucet)

@@ -1,5 +1,5 @@
 """
-textovy_analyzator.py: první projekt do Engeto Online Python Akademie
+projekt_1.py: první projekt do Engeto Online Python Akademie
 
 autor: Tomáš Snětivý
 email: jo2ker@seznam.cz
@@ -45,8 +45,29 @@ reg_users = {
 jmeno = input("Zadejte uživatelské jméno: ")
 heslo = input("Zadejte heslo: ")
 
+# oddělovací linka
+linka = ("-" * 50)
+print(linka)
+
 # ověření uživatelského jména a hesla
 if jmeno in reg_users and reg_users[jmeno] == heslo:
     print(f"Vítej v aplikaci", jmeno, ", máme tři texty k analýze.")
+    print(linka)
 else:
     print("Neregistrovaný uživatel, ukončuji program...")
+    exit()
+
+# uživatelský vstup pro výběr indexu
+vybrany_index = input("Vyber číslo textu od 1 do 3, který chceš analyzovat: ")
+
+# kontrola platnosti indexu a zda je vstup číslo
+if vybrany_index.isdigit():
+    vybrany_index = int(vybrany_index) - 1
+    if vybrany_index < 0 or vybrany_index >= len(TEXTS):
+        print("Vybrané číslo není v zadaní, ukončuji program.")
+        exit()
+    else:
+        print(linka)
+else:
+    print("Zadaný vstup je neplatný, ukončuji program.")
+    exit()

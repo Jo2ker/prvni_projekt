@@ -100,3 +100,28 @@ print("Obsahuje", pocet_cisel, "číselné řetězce.")
 # suma všech čísel v textu
 soucet = sum(cisla)
 print("Součet všech čísel v textu je", soucet)
+print(linka)
+
+# výpis hlavičky grafu
+print("DÉLKA|       VÝSKYT       |POČET")
+print(linka)
+
+# Vytvoření seznamu délek a četnosti slov
+delka_slov = []
+cetnost_delky = []
+
+for _ in slova:
+    delka = len(_.strip('.,!?\''))
+    delka_slov.append(delka)
+
+for delka in delka_slov:
+    index = delka - 1
+    while len(cetnost_delky) <= index:
+        cetnost_delky.append(0)
+    cetnost_delky[index] += 1
+
+# výpis výsledků
+
+for i in range(len(cetnost_delky)):
+    if cetnost_delky[i] > 0:
+        print(f" {i + 1:>4}|{"*" * cetnost_delky[i]:<20}|{cetnost_delky[i]}")
